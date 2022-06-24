@@ -41,9 +41,10 @@ Nutrients.init(
         date_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            unique: true,
             references: {
                 model: 'day',
-                key: 'date'
+                key: 'id'
             }
         }
     },

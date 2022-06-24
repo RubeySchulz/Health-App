@@ -7,11 +7,11 @@ class Day extends Model{}
 
 Day.init(
     {
-        date: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            unique: true
+            autoIncrement: true
         },
         calories_consumed: {
             type: DataTypes.INTEGER,

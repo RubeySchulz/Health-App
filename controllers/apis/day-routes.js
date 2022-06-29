@@ -10,6 +10,10 @@ router.get('/', (req, res) => {
             {
                 model: User,
                 attributes: ['email']
+            },
+            {
+                model: Nutrients,
+                attributes: ['carbs', 'proteins', 'fats', 'sodium', 'cholesterol']
             }
         ]
     })
@@ -25,7 +29,17 @@ router.get('/:id', (req, res) => {
     Day.findOne({
         where: {
             id: req.params.id
-        }
+        },
+        include: [
+            {
+                model: User,
+                attributes: ['email']
+            },
+            {
+                model: Nutrients,
+                attributes: ['carbs', 'proteins', 'fats', 'sodium', 'cholesterol']
+            }
+        ]
     })
     .then(dbDayData => {
         if(!dbDayData) {

@@ -20,7 +20,13 @@ router.get('/:id', (req, res) => {
         attributes: {exclude: ['password']},
         where: {
             id: req.params.id
-        }
+        },
+        include: [
+            {
+                model: Day,
+                attributes: ['created_at', 'updated_at', 'calories_consumed', 'calories_burned']
+            }
+        ]
     })
     .then(dbUserData => {
         if(!dbUserData) {

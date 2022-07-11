@@ -1,54 +1,62 @@
-var upcfood = "021000658831"
-var foodNames = "cheese"
+var food = document.getElementById('food')
+var foodForm = document.getElementById('foodForm')
 
-var getFoodName = function() {
-    // grab food name from url query string
-    var queryString = document.location.search;
-    var foodName = queryString.split("=")[1];
 
-    if (foodName) {
-        // display food name on the page
-        foodNameEl.textContent = foodName;
 
-        getFoodNutrition(foodName);
-    } else {
-        // if no food was given, redirext to homepage
-        document.location.replace("./test-page.html");
-    }
-};
-
-var getFoodNutrition = function() {
+function getFoodNutrition(event) {
+    event.preventdefault();
+    // api information
     var apiId = "app_id=128267bc"
     var apiKey = "app_key=331d3e04b2f9fcb5074581b87838db5b"
-    // format api url
-    var apiUrlUpc = "https://api.edamam.com/api/food-database/v2/parser?" + apiId + "&" + apiKey + "&upc=" + upcfood + "&nutrition-type=logging";
-    var apiUrlName = "https://api.edamam.com/api/food-database/v2/parser?" + apiId + "&" + apiKey + "&ingr=" + foodNames + "&nutrition-type=logging";
-    fetch(apiUrlUpc).then(function(response) {
-        if (response.ok) {
-            response.json().then(function(data) {
-                console.log(data);
-            });
-        };
-    });
-    fetch(apiUrlName).then(function(response) {
-        if (response.ok) {
-            response.json().then(function(data) {
-                console.log(data);
-            });
-        };
-    });
-};
+    var apiName = "https://api.edamam.com/api/food-database/v2/parser?" + apiId + "&" + apiKey + "&ingr=" + food + "&nutrition-type=logging";
 
-// if ingr (keyword search)
+    var foodUrl = apiName + food.value
+    console.log(foodUrl)
+    main.innerhtml = ""
+    console.log(foodUrl)
+    // call api
+    fetch(foodUrl).then(function(response) {
+        if (response.status !== 200) {
+            document.location.status.replace('/404.html')
+        } else {
+            return response.json();
+        }
+        console.log(response);
+    })
+    .then(function(data) {
+        console.log(data);
+        // create elements for information wanted
+        for (i=0; i < data.length; i++) {
+            var foodEl = document.createElement('a')
+            var foodImg = document.createElement('img')
+            var foodCalories = document.createElement('div')
+            var foodName = document.createElement('h3')
+            var foodProtien = document.createElement('h2')
+            var foodFat = document.createElement('h2')
+            var foodCarbs = document.createAttribute('h2')
 
-// if upc (barcode search)
+            var foodId = data[i].food.externals.food
+            showEl.setAttribute("href", "./foodDetails") + foodId;
 
-// display food data
-var displayFood = function() {
+            foodImg.src = data[i].food.image.medium
+            foodName.innerhtml = data[i].food.label
+            foodCalories.innerHTML = data[i].food.ENERC_KCAL
+            foodProtien.innerHTML = data[i].food.PROCNT
+            foodFat.innerHTML = data[i].food.FAT
+            foodCarbs.innerHTML = data[i].food.CHOCDF
 
-};
+            foodImg.classList.add('img')
+            foodCalories.classList.add('calories')
+            foodEl.classList.add('food')
 
+            foodCalories.append(foodName, foodCalories)
+            foodEl.append(foodImg, foodCalories)
+            main.appendChild(foodEl)
+        }
+    })
+}
 
-getFoodNutrition();
+food.addEventListener('keyup', getFoodNutrition)
+foodForm.addEventListener("submit", getFoodNutrition)
 
 

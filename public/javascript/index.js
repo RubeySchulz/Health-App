@@ -4,16 +4,17 @@ var foodForm = document.getElementById('foodForm')
 
 
 function getFoodNutrition(event) {
-    event.preventdefault();
+    
+    event.preventDefault();
+
     // api information
     var apiId = "app_id=128267bc"
     var apiKey = "app_key=331d3e04b2f9fcb5074581b87838db5b"
-    var apiName = "https://api.edamam.com/api/food-database/v2/parser?" + apiId + "&" + apiKey + "&ingr=" + food + "&nutrition-type=logging";
+    var apiName = "https://api.edamam.com/api/food-database/v2/parser?" + apiId + "&" + apiKey + "&ingr=" + food.value + "&nutrition-type=logging";
 
-    var foodUrl = apiName + food.value
-    console.log(foodUrl)
+    var foodUrl = apiName 
     main.innerhtml = ""
-    console.log(foodUrl)
+
     // call api
     fetch(foodUrl).then(function(response) {
         if (response.status !== 200) {

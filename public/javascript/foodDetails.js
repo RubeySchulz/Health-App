@@ -11,7 +11,7 @@ var getFoodId = function() {
 
     var apiId = "app_id=128267bc"
     var apiKey = "app_key=331d3e04b2f9fcb5074581b87838db5b"
-    var foodUrl = "https://api.edamam.com/api/food-database/v2/parser?" + apiId + "&" + apiKey + "&ingr=" + foodNames + "&nutrition-type=logging";
+    var foodUrl = "https://api.edamam.com/api/food-database/v2/parser?" + apiId + "&" + apiKey + "&ingr=" + foodForm + "&nutrition-type=logging";
 
     if(foodId) {
         fetch(foodUrl).then(function(response) {
@@ -31,3 +31,5 @@ var displayFoodInfo = function(food) {
     foodCalories.textContent = food.calories;
     
 }
+
+getFoodId();

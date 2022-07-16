@@ -73,11 +73,15 @@
                         
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mx-auto">
+                              {{#if loggedIn}}
                                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+                                <li class="nav-item"><a class="nav-link" id="logout-button" href="/">logout</a></li>
+                                {{else}}
                                 <li class="nav-item"><a class="nav-link" href="#login">login</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/signup">signup</a></li>
-                                <li class="nav-item"><button class="">logout</button></li>
+                                {{/if}}
+                                
                             </ul>
                         </div>
                     </div>
@@ -93,6 +97,7 @@
     </footer>
   </div>
     <script src="/javascript/index.js"></script>
+    <script src="/javascript/login.js"></script>
     <!-- jQuery Min JS -->
         <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js"></script>
         <!-- jQuery UI JS -->

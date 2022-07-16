@@ -41,9 +41,7 @@
 <body>
   <div class="wrapper">
     <header>
-      <h1>
-        <a href="/">Health App</a>
-      </h1>
+      
       <!-- Start Preloader Area -->
         <div class="preloader-area">
             <div class="spinner">
@@ -60,17 +58,19 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
 				<div class="row">
-                    <div class="col-12 col-lg-2 col-md-3">
+                    {{!-- <div class="col-12 col-lg-2 col-md-3">
                         <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" style="width:209px;height:50px" alt="logo"></a>
-                    </div>
-
+                    </div> --}}
+                    
                     <div class="col-12 col-lg-10 col-md-9">
                         <div class="navbar-toggle-btn">
 							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
 						</div>
-                        
+                        <h1>
+                          <a href="/">Health App</a>
+                        </h1>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mx-auto">
                               {{#if loggedIn}}

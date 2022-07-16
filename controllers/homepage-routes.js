@@ -8,4 +8,10 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/signup', (req, res) => {
+    res.render('signup-form', {
+        loggedIn: req.session.loggedIn
+    });
+})
+
 module.exports = router;

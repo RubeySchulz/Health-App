@@ -24,7 +24,14 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Day,
-                attributes: ['created_at', 'updated_at', 'calories_consumed', 'calories_burned']
+                order: [['created_at', 'DESC']],
+                attributes: ['created_at', 'updated_at', 'calories_consumed', 'calories_burned', 'id'],
+                include: [
+                    {
+                        model: Nutrients,
+                        attributes: ['id', 'carbs', 'proteins', 'fats']
+                    }
+                ]
             }
         ]
     })

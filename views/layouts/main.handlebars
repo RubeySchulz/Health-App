@@ -6,12 +6,13 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    {{#if oldNavbar}}
 		<!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <!-- Jquery UI CSS -->
-        <link rel="stylesheet" href="assets/css/jquery-ui.css">
-        <!-- IcoFont Min CSS -->
-        <link rel="stylesheet" href="assets/css/icofont.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Jquery UI CSS -->
+    <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <!-- IcoFont Min CSS -->
+    <link rel="stylesheet" href="assets/css/icofont.min.css">
 		<!-- Animate CSS -->
 		<link rel="stylesheet" href="assets/css/animate.css">
 		<!-- Owl Carousel CSS -->
@@ -21,11 +22,32 @@
 		<!-- Owl Theme Default CSS -->
 		<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
 		<!-- Style CSS -->
-        <link rel="stylesheet" href="assets/css/style.css">
-        <!-- Responsive CSS -->
-        <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{/if}}
+    
+    {{#if dashboard}}
+    {{!-- For Dashboard --}}
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="assets/vendors/feather/feather.css">
+    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/vendors/typicons/typicons.css">
+    <link rel="stylesheet" href="assets/vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="assets/js/select.dataTables.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="assets/css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="assets/images/logo.png" />
+    {{/if}}
 
 		<title>HealthCare </title>
 	 <style>
@@ -39,11 +61,11 @@
     </head>
 
 <body>
+  
   <div class="wrapper">
+    {{#if oldNavbar}}
     <header>
-      <h1>
-        <a href="/">Health App</a>
-      </h1>
+      
       <!-- Start Preloader Area -->
         <div class="preloader-area">
             <div class="spinner">
@@ -60,24 +82,30 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
 				<div class="row">
-                    <div class="col-12 col-lg-2 col-md-3">
+                    {{!-- <div class="col-12 col-lg-2 col-md-3">
                         <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" style="width:209px;height:50px" alt="logo"></a>
-                    </div>
-
+                    </div> --}}
+                    
                     <div class="col-12 col-lg-10 col-md-9">
                         <div class="navbar-toggle-btn">
 							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
 						</div>
-                        
+                        <h1>
+                          <a href="/">Health App</a>
+                        </h1>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mx-auto">
+                              {{#if loggedIn}}
                                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+                                <li class="nav-item"><a class="nav-link" id="logout-button" href="/">logout</a></li>
+                                {{else}}
                                 <li class="nav-item"><a class="nav-link" href="#login">login</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/signup">signup</a></li>
-                                <li class="nav-item"><button class="">logout</button></li>
+                                {{/if}}
+                                
                             </ul>
                         </div>
                     </div>
@@ -85,6 +113,7 @@
 			</div>
 		</nav>
     </header>
+    {{/if}}
     <main>
       {{{ body }}}
     </main>
@@ -92,7 +121,7 @@
       Thanks for visiting!
     </footer>
   </div>
-    <script src="/javascript/index.js"></script>
+    <script src="/javascript/login.js"></script>
     <!-- jQuery Min JS -->
         <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js"></script>
         <!-- jQuery UI JS -->

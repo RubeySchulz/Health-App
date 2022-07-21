@@ -22,6 +22,7 @@ async function signupFormHandler(event) {
         };
     };
     
+    location.reload();
 }
 
 document.querySelector('#signupForm').addEventListener('submit', signupFormHandler);

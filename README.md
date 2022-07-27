@@ -13,7 +13,9 @@ HTML, CSS, JS
 
 ## Contributers!
 Connor Schulz - Express/MySQL/Handlebars/Helped with Front End JS
+
 Jakub Matyskiewicz - HTML/CSS/Web Design
+
 Joey Byrd - Front End JS
 
 Live Link: https://shielded-shelf-13633.herokuapp.com/

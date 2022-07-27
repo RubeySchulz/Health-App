@@ -12,11 +12,11 @@ Edamam Food and Nutrient API
 HTML, CSS, JS
 
 ## Contributers!
-Connor Schulz - Express/MySQL/Handlebars/Helped with Front End JS
+Connor Schulz - Express/MySQL/Handlebars/Helped with Front End JS  (https://github.com/RubeySchulz)
 
-Jakub Matyskiewicz - HTML/CSS/Web Design
+Jakub Matyskiewicz - HTML/CSS/Web Design  (https://github.com/juniordentax100)
 
-Joey Byrd - Front End JS
+Joey Byrd - Front End JS  (https://github.com/Joeybooo)
 
 Live Link: https://shielded-shelf-13633.herokuapp.com/
 
